@@ -18,7 +18,7 @@ function NavBar() {
   return (
     <nav className="menu" style={{ position: 'fixed', zIndex: 5, width: '100%' }}>
       <div className="menu__logo">
-        <a style={{ color: '#BD0A28', fontWeight: 'bolder' }} href="/">TBP Project</a>
+        <a style={{ color: '#BD0A28', fontWeight: 'bolder' }} href="/">My Movies</a>
       </div>
       <div className="menu__container">
         <div className="menu_left">
