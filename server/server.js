@@ -1,21 +1,20 @@
-const express = require('express');
-const path = require('path');
-const db = require('./config/connection');
-const routes = require('./routes');
+const { User } = require('../models/User');
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+let auth = (req, res, next) => {
+  let token = req.cookies.w_auth;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+  User.findByToken(token, (err, user) => {
+    if (err) throw err;
+    if (!user)
+      return res.json({
+        isAuth: false,
+        error: true
+      });
 
-// if we're in production, serve client/build as static assets
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
+    req.token = token;
+    req.user = user;
+    next();
+  });
+};
 
-app.use(routes);
-
-db.once('open', () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
-});
+module.exports = { auth };
