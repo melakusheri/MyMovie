@@ -3,7 +3,7 @@ const router = express.Router();
 const { Comment } = require("../models/Comment");
 const { auth } = require("../middleware/auth");
 
-router.post("/saveComment", auth, (req, res) => {
+router.post("//api/commentsaveComment", auth, (req, res) => {
 
     const comment = new Comment(req.body)
 
@@ -20,7 +20,7 @@ router.post("/saveComment", auth, (req, res) => {
     })
 })
 
-router.post("/getComments", (req, res) => {
+router.post("/api/comment/getComments", (req, res) => {
 
     Comment.find({ "postId": req.body.movieId })
         .populate('writer')
