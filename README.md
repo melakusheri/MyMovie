@@ -12,6 +12,8 @@
   9. [E-mail](#Email)  
 
   
+  ### Deployed app
+  https://my-movies-melaku.herokuapp.com/
   ## Title
   My Movies
   
