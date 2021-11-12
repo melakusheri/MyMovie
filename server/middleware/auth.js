@@ -3,6 +3,14 @@ const { User } = require('../models/User');
 let auth = (req, res, next) => {
     let cookie = req.headers.cookie;
 
+    const values = cookie.split(';').reduce((res, item) => {
+        const data = item.trim().split('=');
+        return {...res, [data[0]]: data[1] };
+    }, {});
+
+    let token = values['w_auth']
+
+
     User.findByToken(token, (err, user) => {
         if (err) throw err;
         if (!user)
