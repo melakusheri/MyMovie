@@ -1,6 +1,4 @@
 # MyMovie
-
-# undefined
   
   # Table of Content
   1. [Title](#Title)
