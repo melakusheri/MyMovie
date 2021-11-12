@@ -10,7 +10,7 @@ function Footer() {
             flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', fontSize: '1rem'
         }}>
-            <p> &copy; Kristijan Maoduš - {new Date().getFullYear()} </p>
+            <p> &copy; 2021 - {new Date().getFullYear()} </p>
         </div>
     )
 }
