@@ -18,7 +18,7 @@
   My Movies
   
   ## Description
-This app utilizes TMDb API to get the latest movies and users can favorite & keep track of the movies, it has a full login system along with options to favorite movies, see the latest movies informaton and a dd comment. A movie app to find and store your favorite movies all in one place.
+This app utilizes TMDb API to get the latest movies and users can favorite & keep track of the movies, it has a full login system along with options to favorite movies, see the latest movies informaton and add comment. A movie app to find and store your favorite movies all in one place.
   
   ## License
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -37,7 +37,7 @@ This app utilizes TMDb API to get the latest movies and users can favorite & kee
   undefined
   
   ## Github
-  undefined
+  https://github.com/melakusheri/MyMovie
   
   ## E-mail
   mailangels@gmail.com
