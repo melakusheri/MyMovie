@@ -1,20 +1,34 @@
-const { User } = require('../models/User');
+require('dotenv').config()
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const dbConnection = require('./config/connection');
+const commentRoutes = require('./routes/comment.js');
+const favoritesRoutes = require('./routes/favorite.js');
+const likeRoutes = require('./routes/like.js');
+const usersRoutes = require('./routes/users.js');
 
-let auth = (req, res, next) => {
-  let token = req.cookies.w_auth;
 
-  User.findByToken(token, (err, user) => {
-    if (err) throw err;
-    if (!user)
-      return res.json({
-        isAuth: false,
-        error: true
-      });
 
-    req.token = token;
-    req.user = user;
-    next();
-  });
-};
+const app = express();
+app.use(cors())
+const PORT = process.env.PORT || 3001;
+dbConnection()
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-module.exports = { auth };
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+
+app.use(commentRoutes);
+app.use(favoritesRoutes);
+app.use(likeRoutes);
+app.use(usersRoutes);
+
+
+
+
+
+app.listen(PORT, () => console.log(` Now listening on localhost:${PORT}`));
