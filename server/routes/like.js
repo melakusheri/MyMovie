@@ -4,7 +4,7 @@ const { Like } = require("../models/Like");
 const { Dislike } = require("../models/Dislike");
 
 
-router.post("/getLikes", (req, res) => {
+router.post("/api/like/getLikes", (req, res) => {
 
     let variable = {}
     if (req.body.movieId) {
@@ -23,7 +23,7 @@ router.post("/getLikes", (req, res) => {
 })
 
 
-router.post("/getDislikes", (req, res) => {
+router.post("/api/like/getDislikes", (req, res) => {
 
     let variable = {}
     if (req.body.movieId) {
@@ -41,7 +41,7 @@ router.post("/getDislikes", (req, res) => {
 })
 
 
-router.post("/upLike", (req, res) => {
+router.post("/api/like/upLike", (req, res) => {
 
     let variable = {}
     if (req.body.movieId) {
@@ -51,7 +51,7 @@ router.post("/upLike", (req, res) => {
     }
 
     const like = new Like(variable)
-    // save like data in MongoDB
+        // save like data in MongoDB
     like.save((err, likeResult) => {
         if (err) return res.json({ success: false, err });
         // In case disLike Button is already clicked, we need to decrease the dislike by 1 
@@ -65,7 +65,7 @@ router.post("/upLike", (req, res) => {
 })
 
 
-router.post("/unLike", (req, res) => {
+router.post("/api/like/unLike", (req, res) => {
 
     let variable = {}
     if (req.body.movieId) {
@@ -83,7 +83,7 @@ router.post("/unLike", (req, res) => {
 })
 
 
-router.post("/unDislike", (req, res) => {
+router.post("/api/like/unDislike", (req, res) => {
 
     let variable = {}
     if (req.body.movieId) {
@@ -103,7 +103,7 @@ router.post("/unDislike", (req, res) => {
 
 
 
-router.post("/upDislike", (req, res) => {
+router.post("/api/like/upDislike", (req, res) => {
 
     let variable = {}
     if (req.body.movieId) {
@@ -113,7 +113,7 @@ router.post("/upDislike", (req, res) => {
     }
 
     const disLike = new Dislike(variable)
-    // save the like data in MongoDB
+        // save the like data in MongoDB
     disLike.save((err, dislikeResult) => {
         if (err) return res.json({ success: false, err });
         // In case Like Button is already clicked, we need to decrease the like by 1 
