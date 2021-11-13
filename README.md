@@ -62,7 +62,9 @@ In order to start the server, you will need mongodb installed on your machine an
   undefined
   
   ## Github
-  https://github.com/melakusheri/MyMovie
+  https://github.com/melakusheri
+  https://github.com/lsangano
+  
   
   ## E-mail
   mailangels@gmail.com
