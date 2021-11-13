@@ -61,6 +61,10 @@ In order to start the server, you will need mongodb installed on your machine an
   ## Contribution
   undefined
   
+  ## Development Team
+  Melaku Sheri
+  Laeticia Ndutiye
+  
   ## Github
   Melaku Sheri
   https://github.com/melakusheri
